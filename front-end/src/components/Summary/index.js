@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { FaCcVisa, FaCcMastercard, FaCcPaypal } from "react-icons/fa";
 import paypal from "../../components/images/paypal.png";
 import DeliveryInput from "../DeliveryInput/Index";
 import DiscountInput from "../DiscountInput";
+import PriceContext from "../../contexts/PriceContext";
+function Summary({ totalPrice }) {
+  const { price } = useContext(PriceContext);
 
-function Summary() {
-  const [price, setPrice] = useState(257.41);
+  const navigate = useNavigate();
 
   return (
     <div className='side-wrapper'>
@@ -15,24 +18,29 @@ function Summary() {
 
           <div className='total-con'>
             <h4>Items: </h4>
-            <h4 className='total-price'>$257.41</h4>
+            <h4 className='total-price'>${totalPrice}</h4>
           </div>
 
-          <DeliveryInput price={price} setPrice={setPrice} />
-          <DiscountInput price={price} setPrice={setPrice} />
+          <DiscountInput totalPrice={totalPrice} />
+          <DeliveryInput totalPrice={totalPrice} />
 
           <div className='final-con'>
             <h4 className='final-cost'> Total cost: </h4>
-            <h4 className='final-price'>{`$${price}`}</h4>
+            <h4 className='final-price'>${price.toFixed(2)}</h4>
           </div>
 
-          <button className='delivery-btn'>CHECKOUT</button>
+          <button
+            onClick={() => navigate("/authenticate")}
+            className='delivery-btn'
+          >
+            CHECKOUT
+          </button>
           <div className='paypal-con'>
             <img className='paypal' src={paypal} alt='paypal' />
-            <h5 class=''>
-              <span class=''>
-                <span class=''>Pay in 3 interest-free payments</span>
-                <span class=''> of $86.61. Buy now, pay later.</span>
+            <h5 className=''>
+              <span className=''>
+                <span className=''>Pay in 3 interest-free payments</span>
+                <span className=''> of $86.61. Buy now, pay later.</span>
               </span>
             </h5>
           </div>

@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import PriceContext from "../../contexts/PriceContext";
 import { promoCode } from "../../data";
 
-function DiscountInput({ price, setPrice }) {
+function DiscountInput({ totalPrice }) {
+  const { setPrice, shipActiveVal, delivVal } = useContext(PriceContext);
+
   const [activePromo, setActivePromo] = useState(false);
   const [promoVal, setPromoVal] = useState("");
   const [discount, setDiscount] = useState(false);
@@ -23,7 +26,12 @@ function DiscountInput({ price, setPrice }) {
     if (returnVal) {
       setActivePromo(false);
       setDiscVal("-5%");
-      setPrice((parseInt(price) * (1 - 0.05)).toFixed(2));
+      if (shipActiveVal) {
+        setPrice(totalPrice * (1 - 0.05) + delivVal);
+      } else {
+        setPrice(totalPrice * (1 - 0.05));
+      }
+
       setDiscount(true);
       setPromoVal("");
     } else {
@@ -36,7 +44,12 @@ function DiscountInput({ price, setPrice }) {
 
   function revertPromo() {
     setDiscount(false);
-    setPrice((parseInt(price) * (1 + 0.05)).toFixed(2));
+    // I need to know if the shipping was added
+    if (shipActiveVal) {
+      setPrice(totalPrice + delivVal);
+    } else {
+      setPrice(totalPrice);
+    }
     setDiscVal("");
     setAlertDisc("");
   }

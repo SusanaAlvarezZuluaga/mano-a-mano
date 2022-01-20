@@ -1,18 +1,18 @@
 import React from "react";
-import pic from "../images/pic.jpg";
+// import pic from "../images/pic.jpg";
 
-function CartProduct() {
+function CartProduct({ title, subtitle, image, price }) {
   return (
     <>
       <div className='product-compo'>
-        <img className='img-product' alt='kitchen tap' src={pic}></img>
-        <div>
-          <h5>Sauber Kitchen Mixer Tap Dual Spout with Pull Out</h5>
-          <h6 className='subtitle'>Spray Sold by Plumbworld</h6>
+        <img className='img-product' alt='kitchen tap' src={image}></img>
+        <div className='title-item'>
+          <h5>{title}</h5>
+          <h6 className='subtitle'>{subtitle}</h6>
         </div>
 
         <input className='input-num' defaultValue='1' type='number' />
-        <div className='price'>$47.47</div>
+        <h4 className='price'>${price}</h4>
         <button className='aside-btn'>Set aside for later</button>
         <button className='delete-btn'>Delete</button>
       </div>
