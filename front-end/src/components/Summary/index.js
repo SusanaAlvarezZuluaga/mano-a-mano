@@ -56,7 +56,7 @@ function Summary() {
             From Monday to Friday from 8am to 8pm, Saturday from 9am to 6pm and
             on Sunday from 9am to 3pm. Local network charges apply.
           </h6>
-          <button> Chat online</button>
+          <button className='chat-btn'> Chat online</button>
         </div>
       </div>
     </div>
