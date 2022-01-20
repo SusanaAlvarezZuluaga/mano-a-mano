@@ -31,7 +31,7 @@ function RegisterForm() {
   const onSubmit = async (data, { resetForm }) => {
     context.setEmail(data.email);
     context.setPassword(data.password);
-    navigate('/checkout-address');
+    navigate('/user-info');
   };
 
   return (

@@ -2,7 +2,8 @@ import React from 'react';
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import { ErrorMessage, useField } from 'formik';
 import './style.css';
-function TextField({ label, showPass, setShowPass, eye, ...props }) {
+
+function TextField({ label, showPass, setShowPass, eye, formik, ...props }) {
   const [field, meta] = useField(props);
   return (
     <div className="input-label-con">
@@ -20,7 +21,7 @@ function TextField({ label, showPass, setShowPass, eye, ...props }) {
         )}
       </div>
 
-      <ErrorMessage className="input-err" name={field.name} component="span" />
+      <ErrorMessage className="input-err" name={field.name} component="div" />
     </div>
   );
 }

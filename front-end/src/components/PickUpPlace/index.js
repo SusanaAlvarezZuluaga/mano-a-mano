@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './styles.css';
 function OpenHours() {
   return (
-    <div>
+    <div className="open-hours-holder">
       <div className="days">
         <div>Monday</div>
         <div>Tuesday</div>
@@ -25,17 +25,28 @@ function OpenHours() {
   );
 }
 
-function PickUpPlace({ id, name, address, telephone, setShowPaymentSection }) {
+function PickUpPlace({ name, address, telephone, setShowPaymentSection }) {
   const [showOpenHours, setShowOpenHours] = useState(false);
   return (
-    <button onClick={() => setShowPaymentSection(true)}>
-      <div>{name}</div>
-      <div>{address}</div>
-      <div>{telephone}</div>
-      <button onClick={() => setShowOpenHours(!showOpenHours)}>
-        {showOpenHours ? 'Hide open hours' : 'Show open hours'}
-      </button>
-      {showOpenHours ? <OpenHours /> : null}
+    <button
+      className="pickup-place"
+      onClick={() => setShowPaymentSection(true)}
+    >
+      <div className="pickup-place-col">
+        <div className="pickup-place-name">{name}</div>
+        <div>{address}</div>
+        <div>{telephone}</div>
+      </div>
+
+      <div className="pickup-place-col">
+        <div
+          className="open-hours-button"
+          onClick={() => setShowOpenHours(!showOpenHours)}
+        >
+          {showOpenHours ? 'Hide open hours' : 'Show open hours'}
+        </div>
+        {showOpenHours ? <OpenHours /> : null}
+      </div>
     </button>
   );
 }

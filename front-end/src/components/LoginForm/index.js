@@ -34,7 +34,7 @@ function InputForm() {
   const onSubmit = async (data, { resetForm }) => {
     context.setEmail(data.email);
     context.setPassword(data.password);
-    navigate('/checkout-address');
+    navigate('/checkout');
   };
 
   return (

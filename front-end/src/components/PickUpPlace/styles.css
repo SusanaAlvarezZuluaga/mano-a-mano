@@ -1,0 +1,23 @@
+.pickup-place {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 7px;
+}
+.pickup-place-name {
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.open-hours-button {
+  padding: 10px;
+  border: solid 2px rgb(190, 190, 190);
+  box-shadow: 5px 5px #888888;
+}
+.open-hours-holder {
+  display: flex;
+  margin-top: 5px;
+}

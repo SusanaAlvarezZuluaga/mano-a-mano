@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { Formik, Form, useFormik } from 'formik';
+import { Formik, Form } from 'formik';
 
 import UserInfoContext from '../../contexts';
 import TextField from '../TextField';
 
 import './styles.css';
-function DeliveryForm({ setDeliverySectionFilled }) {
+function UserInfoForm() {
   const context = useContext(UserInfoContext);
+  let navigate = useNavigate();
   const initialValues = {
-    postalCode: context.postalCode,
-    address: context.address,
-    country: context.country,
-    city: context.city,
-    name: context.name,
-    mobileNumber: context.mobileNumber,
+    postalCode: '',
+    address: '',
+    country: '',
+    city: '',
+    name: '',
+    mobileNumber: '',
   };
   const initialSchema = Yup.object().shape({
     postalCode: Yup.string().required('Required'),
@@ -26,8 +27,14 @@ function DeliveryForm({ setDeliverySectionFilled }) {
     mobileNumber: Yup.string().required('Required'),
   });
 
-  const onSubmit = () => {
-    setDeliverySectionFilled(true);
+  const onSubmit = (data) => {
+    context.setPostalCode(data.postalCode);
+    context.setAddress(data.address);
+    context.setCountry(data.country);
+    context.setCity(data.city);
+    context.setName(data.name);
+    context.setMobileNumber(data.mobileNumber);
+    navigate('/checkout');
   };
 
   return (
@@ -38,6 +45,14 @@ function DeliveryForm({ setDeliverySectionFilled }) {
         onSubmit={onSubmit}
       >
         <Form>
+          <div className="form-row">
+            <TextField name="name" type="name" placeholder="Name" />
+            <TextField
+              name="mobileNumber"
+              type="mobileNumber"
+              placeholder="Mobile Number"
+            />
+          </div>
           <div className="form-row">
             <TextField name="country" type="country" placeholder="Country" />
             <TextField name="city" type="city" placeholder="City" />
@@ -52,15 +67,6 @@ function DeliveryForm({ setDeliverySectionFilled }) {
             <TextField name="address" type="address" placeholder="Address" />
           </div>
 
-          <div className="form-row">
-            <TextField name="name" type="name" placeholder="Name" />
-            <TextField
-              name="mobileNumber"
-              type="mobileNumber"
-              placeholder="Mobile Number"
-            />
-          </div>
-
           <div className="btn-con">
             <button className="form-btn smaller-btn" type="submit">
               continue
@@ -72,4 +78,4 @@ function DeliveryForm({ setDeliverySectionFilled }) {
   );
 }
 
-export default DeliveryForm;
+export default UserInfoForm;

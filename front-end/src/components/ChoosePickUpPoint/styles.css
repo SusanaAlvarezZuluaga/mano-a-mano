@@ -1,0 +1,5 @@
+.pickup-places-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

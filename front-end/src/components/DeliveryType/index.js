@@ -1,27 +1,41 @@
-import { FiTruck } from 'react-icons/fi';
-import { MdStorefront } from 'react-icons/md';
+import { MdLocalShipping } from 'react-icons/md';
+import { FaShippingFast } from 'react-icons/fa';
+import './styles.css';
 
 function DeliveryType({ setShowDeliveryAddressForm }) {
   return (
-    <div className="options-holder">
+    <div className="delivery-type-options-holder">
       <button
-        className="order-option"
+        className="delivery-type-option"
         onClick={() => setShowDeliveryAddressForm(true)}
       >
-        <FiTruck />
-        <div className="order-option-name"> Standard Delivery</div>
-        <div>Free</div>
-        <div>Betweenn Saturday 22nd January and Tuesday 25th January</div>
+        <div>
+          <div className="delivery-type-option-line1">
+            <div className="delivery-type-option-name">
+              <MdLocalShipping className="icon" />
+              Standard Delivery
+            </div>
+            <div>Free</div>
+          </div>
+
+          <div className="arrival-date">
+            Arrives betweeen Jan 22nd and Jan 25th
+          </div>
+        </div>
       </button>
 
       <button
-        className="order-option"
+        className="delivery-type-option"
         onClick={() => setShowDeliveryAddressForm(true)}
       >
-        <MdStorefront />
-        <div className="order-option-name"> Express Delivery</div>
-        <div>7.99</div>
-        <div>Tomorrow</div>
+        <div className="delivery-type-option-line1">
+          <div className="delivery-type-option-name">
+            <FaShippingFast className="icon" />
+            Express Delivery
+          </div>
+          <div>€ 7.99</div>
+        </div>
+        <div className="arrival-date">Arrives tomorrow</div>
       </button>
     </div>
   );

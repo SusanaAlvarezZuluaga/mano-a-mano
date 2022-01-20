@@ -1,5 +1,10 @@
 import PickUpPlace from '../PickUpPlace';
-function ChoosePickUpPoint(setShowDeliveryAddressForm, setShowPaymentSection) {
+import './styles.css';
+
+function ChoosePickUpPoint({
+  setShowDeliveryAddressForm,
+  setShowPaymentSection,
+}) {
   const mockData = [
     {
       id: 1,
@@ -15,9 +20,10 @@ function ChoosePickUpPoint(setShowDeliveryAddressForm, setShowPaymentSection) {
     },
   ];
   return (
-    <div>
+    <div className="pickup-places-holder">
       {mockData.map((place) => (
         <PickUpPlace
+          key={place.id}
           {...place}
           setShowDeliveryAddressForm={setShowDeliveryAddressForm}
           setShowPaymentSection={setShowPaymentSection}

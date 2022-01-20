@@ -12,10 +12,13 @@
   padding: 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
   border: solid 2px grey;
   border-radius: 5px;
   margin: 5px 0;
+  font-size: 18px;
 }
 .order-option-name {
   margin-left: 5px;
+  font-weight: bolder;
 }
