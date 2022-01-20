@@ -1,0 +1,21 @@
+.options-holder {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.order-option {
+  width: 49%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border: solid 2px grey;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+.order-option-name {
+  margin-left: 5px;
+}

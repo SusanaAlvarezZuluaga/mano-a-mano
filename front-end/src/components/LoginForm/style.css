@@ -1,0 +1,27 @@
+.btn-con {
+  display: flex;
+  justify-content: center;
+  margin: 5% 0;
+}
+.form-btn {
+  max-width: 300px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+  padding: 3%;
+  border: 0.1rem solid #12ccb4;
+  color: #0c193a;
+  background-color: #12ccb4;
+  border-radius: 5px;
+  box-shadow: 0 0.3rem 0.4rem 0 rgb(0 0 0 / 25%);
+}
+.google-login-btn {
+  border: solid 2px rgba(231, 230, 230, 0.411);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0.3rem 0.4rem 0 rgb(0 0 0 / 25%);
+}
+
+.input-err {
+  color: #ff6200;
+}

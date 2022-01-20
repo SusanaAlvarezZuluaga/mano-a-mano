@@ -1,0 +1,30 @@
+.input-label-con {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 300px;
+}
+.form-input {
+  border: #d8dadf 0.1rem solid;
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin: 2% 0;
+}
+
+.input-eye-con {
+  position: relative;
+}
+
+.input-eye-con .eye-icon {
+  color: #757575;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
