@@ -3,7 +3,7 @@ import * as FiIcons from 'react-icons/fi';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
-import './Navbar.css';
+import './style.css';
 import { IconContext } from 'react-icons';
 
 function Navbar() {
@@ -34,9 +34,15 @@ function Navbar() {
                 </li>
               );
             })}
+          
           </ul>
+          <div>
+          <button className='checkout-btn'>CHECKOUT</button>
+      </div>
         </nav>
+        
       </IconContext.Provider>
+
     </>
   );
 }

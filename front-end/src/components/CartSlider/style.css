@@ -18,7 +18,8 @@
   width: 32vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
   position: fixed;
   top: 0;
   right: -100%;
@@ -30,6 +31,7 @@
   transition: 500ms;
   position: absolute;
   margin-top: 5rem;
+  list-style-type: none;
 }
 
 .nav-text {
@@ -70,5 +72,19 @@ span {
 }
 
 .miniature{
-  width: 30px;
+  width: 60px;
+}
+
+.checkout-btn{
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem 5rem;
+  margin-top: 3rem;
+  margin-left: 6vw;
+  color: inherit;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  background-color: #12ccb4;
+  border-radius: 5px;
 }

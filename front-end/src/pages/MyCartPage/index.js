@@ -3,15 +3,11 @@ import CartProduct from '../../components/CartProduct';
 import './style.css';
 import { MdOutlineContentCopy } from 'react-icons/md';
 import Summary from '../../components/Summary';
-import Navbar from '../../components/CartSlider/Navbar';
 
 function MyCartPage() {
   return (
     <>
-      <header className="header">
-        HEADER
-        <Navbar />
-      </header>
+      <header className="header">HEADER</header>
       <div className="layout-wrap">CONTINUE SHOPPING</div>
       <div className="center">
         {' '}
