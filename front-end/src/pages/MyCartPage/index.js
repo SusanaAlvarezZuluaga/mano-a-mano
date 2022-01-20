@@ -3,13 +3,16 @@ import CartProduct from "../../components/CartProduct";
 import { FaCcVisa, FaCcMastercard, FaCcPaypal } from "react-icons/fa";
 import paypal from "../../components/images/paypal.png";
 import "./style.css";
+import Navbar from "../../components/CartSlider/Navbar";
 
 function MyCartPage() {
   const [active, setActive] = useState(false);
   console.log(active);
   return (
     <>
-      <header className='header'> HEADER</header>
+      <header className='header'>HEADER
+      <Navbar />
+      </header>
       <div className='layout-wrap'>CONTINUE SHOPPING</div>
       <div className='main-side-wrapper'>
         <main className='cart-content-wrap'>
