@@ -1,40 +1,56 @@
-import React from 'react';
-import CartProduct from '../../components/CartProduct';
-import './style.css';
-import { MdOutlineContentCopy } from 'react-icons/md';
-import Summary from '../../components/Summary';
-import Navbar from '../../components/CartSlider/Navbar';
+import React, { useState } from "react";
+import CartProduct from "../../components/CartProduct";
+import "./style.css";
+import Summary from "../../components/Summary";
+import Navbar from "../../components/CartSlider/Navbar";
+import { items } from "../../data";
+import PriceContext from "../../contexts/PriceContext";
 
 function MyCartPage() {
+  const totalPrice = items.reduce((a, b) => a + b.price, 0);
+  const [price, setPrice] = useState(totalPrice);
+  const [shipActiveVal, setShipActiveVal] = useState(false);
+  const [delivVal, setDelivVal] = useState("");
+
   return (
     <>
-      <header className="header">
+      <header className='header'>
         HEADER
         <Navbar />
       </header>
-      <div className="layout-wrap">CONTINUE SHOPPING</div>
-      <div className="center">
-        {' '}
-        <div className="main-side-wrapper">
-          {/* {
-          <h5 className='copy-basket'>
-            <MdOutlineContentCopy /> copy your basket
-          </h5>
-        } */}
-          <main className="cart-content-wrap">
-            {<CartProduct />}
-            {<CartProduct />}
-            {<CartProduct />}
-            {<CartProduct />}
-            {<CartProduct />}
-            {<CartProduct />}
+      <div className='layout-wrap'>CONTINUE SHOPPING</div>
+      <div className='center'>
+        <div className='main-side-wrapper'>
+          <main className='cart-content-wrap'>
+            {items.map((item) => {
+              return (
+                <CartProduct
+                  key={item.id}
+                  image={item.image}
+                  titl={item.title}
+                  subtitle={item.subtitle}
+                  price={item.price}
+                />
+              );
+            })}
           </main>
-          <Summary />
+          <PriceContext.Provider
+            value={{
+              price: price,
+              setPrice: setPrice,
+              shipActiveVal: shipActiveVal,
+              setShipActiveVal: setShipActiveVal,
+              delivVal: delivVal,
+              setDelivVal: setDelivVal,
+            }}
+          >
+            <Summary totalPrice={totalPrice} />
+          </PriceContext.Provider>
         </div>
       </div>
 
-      <footer className="footer">NEWSLETTERS ADVERTISMENTS</footer>
-      <footer className="footer">FOOOTER</footer>
+      <footer className='footer'>NEWSLETTERS ADVERTISMENTS</footer>
+      <footer className='footer'>FOOOTER</footer>
     </>
   );
 }

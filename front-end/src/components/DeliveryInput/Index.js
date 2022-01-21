@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import PriceContext from "../../contexts/PriceContext";
 import { shipCost } from "../../data";
 
-function DeliveryInput({ price, setPrice }) {
+function DeliveryInput() {
+  const { price, setPrice, setShipActiveVal, delivVal, setDelivVal } =
+    useContext(PriceContext);
   const [active, setActive] = useState(false);
   const [addedDel, setAddedDel] = useState(false);
   const [city, setCity] = useState("");
   const [zip, setZip] = useState("");
-  const [delivVal, setDelivVal] = useState("");
   const [alertDeliv, setAlertDeliv] = useState("");
   let shippingCost;
 
@@ -18,9 +20,10 @@ function DeliveryInput({ price, setPrice }) {
 
   function revertCost() {
     setAddedDel(false);
-    setPrice((parseInt(price) - shippingCost.cost).toFixed(2));
+    setPrice(price - delivVal);
     setDelivVal("");
     setAlertDeliv("");
+    setShipActiveVal(false);
   }
 
   function onSubmitShip(e) {
@@ -32,8 +35,9 @@ function DeliveryInput({ price, setPrice }) {
 
     if (shippingCost) {
       setActive(false);
-      setPrice((parseInt(price) + shippingCost.cost).toFixed(2));
+      setPrice(price + shippingCost.cost);
       setDelivVal(shippingCost.cost);
+      setShipActiveVal(true);
       setAddedDel(true);
       setCity("");
       setZip("");
@@ -49,7 +53,7 @@ function DeliveryInput({ price, setPrice }) {
       {addedDel ? (
         <div className='delivery-added' onClick={revertCost}>
           <h5>Shipping cost</h5>
-          <h5 className='deliv-val'>{`$${delivVal}`}</h5>
+          <h5 className='deliv-val'>${delivVal}</h5>
         </div>
       ) : (
         <div className='add-shipping' onClick={() => setActive(!active)}>

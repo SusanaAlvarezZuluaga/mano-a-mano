@@ -47,9 +47,10 @@ body {
   display: flex;
   background-color: white;
   margin: 0.5rem 0;
+  width: 60vw;
   max-width: 765px;
   min-width: 612px;
-  box-shadow: 0px 0px 4px -2px #000000c7;
+  box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
 }
 .side-wrapper {
   display: flex;
@@ -63,22 +64,37 @@ body {
   width: 95%;
   max-width: 1240px;
   display: flex;
+
   justify-content: space-between;
 }
 
 .pay-checkout {
   margin: 0.5rem 0;
   margin-left: 3%;
-  box-shadow: 0px 0px 4px -2px #000000c7;
-  max-height: 500px;
-  min-height: 500px;
+  box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+
+  height: 70vh;
   background-color: white;
   max-width: 340px;
   min-width: 280px;
 }
 
+.delete-btn,
+.aside-btn {
+  background: none;
+  border: 1px solid #12ccb4;
+  cursor: pointer;
+  padding: 0.5%;
+}
+.delete-btn {
+  border: 1px solid red;
+  margin-right: 2%;
+}
+.title-item {
+  width: 25%;
+}
 .input-num {
-  width: 10%;
+  width: 5%;
 }
 
 .center-pay {
@@ -203,7 +219,7 @@ path {
 .contact-info {
   margin: 0.5rem 0;
   margin-left: 3%;
-  box-shadow: 0px 0px 4px -2px #000000c7;
+  box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
   background-color: white;
   max-width: 340px;
   min-width: 280px;
