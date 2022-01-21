@@ -1,3 +1,24 @@
 .product-compare {
   display: flex;
+  height: 30vh;
+  width: 80vw;
+  margin: 5% auto;
+  border: 3px solid #12ccb4;
+  max-width: 872px;
+  min-width: 720px;
+}
+
+.image-2 {
+  width: 40vw;
+}
+.image-1 {
+  width: 20vw;
+  height: 100%;
+}
+
+.product-name {
+  width: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
