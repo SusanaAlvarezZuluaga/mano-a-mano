@@ -15,7 +15,7 @@ function DeliveryType({ setShowDeliveryAddressForm }) {
               <MdLocalShipping className="icon" />
               Standard Delivery
             </div>
-            <div>Free</div>
+            <div>$ 2.99</div>
           </div>
 
           <div className="arrival-date">
@@ -33,7 +33,7 @@ function DeliveryType({ setShowDeliveryAddressForm }) {
             <FaShippingFast className="icon" />
             Express Delivery
           </div>
-          <div>€ 7.99</div>
+          <div>$ 7.99</div>
         </div>
         <div className="arrival-date">Arrives tomorrow</div>
       </button>

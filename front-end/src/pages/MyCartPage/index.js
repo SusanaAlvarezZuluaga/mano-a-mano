@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import CartProduct from "../../components/CartProduct";
-import "./style.css";
-import Summary from "../../components/Summary";
-import Navbar from "../../components/CartSlider/Navbar";
-import { items } from "../../data";
-import PriceContext from "../../contexts/PriceContext";
+import React, { useState } from 'react';
+import CartProduct from '../../components/CartProduct';
+import './style.css';
+import Summary from '../../components/Summary';
+import Navbar from '../../components/CartSlider';
+import { items } from '../../data';
+import PriceContext from '../../contexts/PriceContext';
 
 function MyCartPage() {
   const totalPrice = items.reduce((a, b) => a + b.price, 0);
   const [price, setPrice] = useState(totalPrice);
   const [shipActiveVal, setShipActiveVal] = useState(false);
-  const [delivVal, setDelivVal] = useState("");
+  const [delivVal, setDelivVal] = useState('');
 
   return (
     <>
-      <header className='header'>
+      <header className="header">
         HEADER
         <Navbar />
       </header>
-      <div className='layout-wrap'>CONTINUE SHOPPING</div>
-      <div className='center'>
-        <div className='main-side-wrapper'>
-          <main className='cart-content-wrap'>
+      <div className="layout-wrap">CONTINUE SHOPPING</div>
+      <div className="center">
+        <div className="main-side-wrapper">
+          <main className="cart-content-wrap">
             {items.map((item) => {
               return (
                 <CartProduct
@@ -49,8 +49,8 @@ function MyCartPage() {
         </div>
       </div>
 
-      <footer className='footer'>NEWSLETTERS ADVERTISMENTS</footer>
-      <footer className='footer'>FOOOTER</footer>
+      <footer className="footer">NEWSLETTERS ADVERTISMENTS</footer>
+      <footer className="footer">FOOOTER</footer>
     </>
   );
 }
