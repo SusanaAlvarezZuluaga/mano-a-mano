@@ -11,7 +11,8 @@ import specs4 from "../../assets/specs4.png";
 import specs5 from "../../assets/specs5.png";
 import "./style.css";
 import { Link } from "react-router-dom";
-import ComparePage from "../ComparePage";
+import React from "react";
+import Navbar from "../../components/CartSlider/index";
 
 const products = [
   {
@@ -54,6 +55,11 @@ const products = [
 function HomePage({ compare, setCompare }) {
   return (
     <>
+      <header className='header'>
+        HEADER
+        <Navbar />
+      </header>
+      <div className='layout-wrap'>CONTINUE SHOPPING</div>
       <div className='wrapper'>
         <Link to='/compare'>
           Compare {compare.length > 0 ? compare.length : null}
