@@ -19,7 +19,7 @@ function App() {
   const [country, setCountry] = useState('Portugal');
   const [city, setCity] = useState('Lisbon');
   const [postalCode, setPostalCode] = useState('1170-088');
-  const [name, setName] = useState('Hugo Silva');
+  const [name, setName] = useState('Susana Alvarez');
   const [mobileNumber, setMobileNumber] = useState('+351 912648753');
   const [compare, setCompare] = useState([]);
 
