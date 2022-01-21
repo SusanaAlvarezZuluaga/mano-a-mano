@@ -15,9 +15,9 @@ const ComparePage = ({ compare }) => {
         {compare.map(({ id, title, src, specs }) => (
           <div key={id} className='product-compare'>
             <div className='product-name'>{title}</div>
-            <img src={src} alt='' />
+            <img className='image-1' src={src} alt='' />
             <br></br>
-            <img src={specs} alt='' />
+            <img className='image-2' src={specs} alt='' />
           </div>
         ))}
       </div>
