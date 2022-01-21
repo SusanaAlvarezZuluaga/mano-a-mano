@@ -1,0 +1,20 @@
+.card-grid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.card-title{
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card-image{
+    justify-self: center;
+}
+
+
+.btn{
+background-color: rgb(167, 167, 167); 
+}

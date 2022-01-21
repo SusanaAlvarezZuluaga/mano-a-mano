@@ -9,6 +9,7 @@ import RegisterPage from './pages/RegisterPage';
 import UserInfoPage from './pages/UserInfoPage';
 import UserInfoContext from './contexts';
 import ThanksForPurchase from './pages/ThanksForPurchasePage';
+import ComparePage from './pages/ComparePage';
 import './styles.css';
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
   const [postalCode, setPostalCode] = useState('1170-088');
   const [name, setName] = useState('Hugo Silva');
   const [mobileNumber, setMobileNumber] = useState('+351 912648753');
+  const [compare, setCompare] = useState([]);
+
   return (
     <UserInfoContext.Provider
       value={{
@@ -42,13 +45,17 @@ function App() {
       }}
     >
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/"
+          element={<HomePage compare={compare} setCompare={setCompare} />}
+        />
         <Route path="/my-cart" element={<MyCartPage />} />
         <Route path="/authenticate" element={<AuthenticatePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/user-info" element={<UserInfoPage />} />
         <Route path="/checkout" element={<CheckoutAddressInfoPage />} />
         <Route path="/finalized-purchase" element={<ThanksForPurchase />} />
+        <Route path="/compare" element={<ComparePage compare={compare} />} />
       </Routes>
     </UserInfoContext.Provider>
   );
